@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Static Practice</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&family=Recursive&family=Source+Sans+3:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <a href="#" class="navbar__site nostyle">writings.dev</a>
+                <a href="#" class="navbar__link nostyle">categories</a>
+                <a href="#" class="navbar__link nostyle">articles</a>
+                <a href="#" class="navbar__link nostyle">about</a>
+            </nav>
+            <div class="centered">
+                <svg class="header__image" width="195" height="205" viewbox="0 0 195 205" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.141 204.084C21.3345 204.077 12.9429 195.044 9.54285 187.142C7.62265 183.194 0 166.612 0 152.214C0 138.165 8.26868 124.824 20.5499 117.811V115.692C20.5499 107.488 27.2247 100.814 35.4286 100.814H44.5825C40.5945 87.9757 36.1685 61.7949 55.7527 39.2444C58.5961 35.983 62.6868 34.1231 66.9922 34.1231C67.0235 34.1231 67.0548 34.1231 67.0883 34.1231C78.1199 19.3584 100.355 0 141.073 0C154.143 0 168.391 2.0409 183.42 6.06683C188.141 7.33876 191.934 10.8371 193.58 15.4308C195.223 20.0536 194.498 25.1659 191.646 29.1293C190.557 30.6404 189.518 32.1649 188.494 33.6649L188.284 33.9711C184.712 39.2131 181.008 44.6451 175.947 49.3483C172.585 52.4734 167.982 55.8935 162.624 58.8263C162.655 62.6645 161.193 66.4199 158.426 69.279C133.915 94.55 112.446 107.046 95.7459 113.028C95.9024 113.893 95.9851 114.782 95.9851 115.692V117.811C108.264 124.822 116.535 138.165 116.535 152.214C116.535 166.59 108.91 183.192 106.994 187.14C103.599 195.033 95.2183 204.064 82.4387 204.084H34.141Z" fill="#F2F2F2"/>
+                    <path d="M131.281 50.7695C144.565 53.4306 159.002 44.7818 165.816 38.4502C171.025 33.6102 174.885 26.9498 179.568 20.4412C90.2695 -3.49325 71.2036 56.9454 71.2036 56.9454C71.2036 56.9454 68.4342 58.6419 66.9885 48.9987C46.4007 72.7033 61.0884 102.466 61.0884 102.466C61.0884 102.466 95.5169 112.768 147.739 58.926C139.083 57.6306 135.824 55.5498 131.281 50.7695Z" fill="#FF7575" stroke="#40396E" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M81.1069 127.964V115.694C81.1069 115.694 81.1067 115.693 81.1064 115.693H35.4291V127.964C23.7725 130.127 14.8793 141.156 14.8793 152.215C14.8793 164.545 23.0991 180.993 23.0991 180.993C23.0991 180.993 26.1796 189.2 34.1399 189.205C47.4147 189.205 69.1387 189.205 82.4136 189.205C90.3594 189.191 93.4368 180.993 93.4368 180.993C93.4368 180.993 101.657 164.545 101.657 152.215C101.657 141.156 92.7634 130.127 81.1069 127.964Z" fill="#9AA2E6" stroke="#40396E" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M134.269 35.3951C81.115 54.163 54.0728 100.319 50.7245 149.772" stroke="#40396E" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M88.5627 143.995H27.9734C26.3459 146.585 25.3882 149.478 25.3882 152.215C25.3882 160.739 30.6942 173.225 32.741 177.315L32.9341 177.701L33.0821 178.104C33.0862 178.104 34.3562 180.985 36.4317 180.985H80.1002C82.1634 180.985 83.4416 178.137 83.4499 178.104L83.5978 177.701L83.791 177.315C85.8377 173.213 91.1478 160.686 91.1478 152.215C91.1478 149.478 90.1902 146.585 88.5627 143.995Z" fill="#707CC0"/>
+                </svg>
+                <h1 class="header__title">
+                    Writings for Developers
+                </h1>
+                <h2 class="header__subtitle">
+                    Curated collection of articles for busy developers
+                </h2>
+            </div>
+        </header>
+        <hr>
+        <main>
+            <ul class="content-filters">
+                <li>
+                    <div class="content-filters__view-options">
+                        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_31_323)">
+                                <path d="M6 6H0V0H6V6ZM15 0H9V6H15V0ZM24 0H18V6H24V0ZM6 9H0V15H6V9ZM15 9H9V15H15V9ZM24 9H18V15H24V9ZM6 18H0V24H6V18ZM15 18H9V24H15V18ZM24 18H18V24H24V18Z" fill="#909090"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_31_323">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_31_325)">
+                                <path d="M0 4.36364H24V0H0V4.36364ZM0 14.1818H24V9.81818H0V14.1818ZM0 24H24V19.6364H0V25.0909V24Z" fill="#909090"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_31_325">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </li>
+                <li>JavaScript</li>
+                <li>DevOps</li>
+                <li>Cloud</li>
+                <li>Terraform</li>
+                <li>Architecture</li>
+                <li>Scalability</li>
+                <li>Explainers</li>
+            </ul>
+            <div class="articles">
+                <div
+                    class="card">
+                    <!-- TODO: replace hardcoded image width and height -->
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+                <div class="card">
+                    <img loading="lazy" class="card__image" src="./images/article-image.png" alt="generic article image">
+                    <h3>Build continuous integration pipelines with GitHub Actions</h3>
+                    <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+                    <div>
+                        June 24, 2023
+                        <svg width="4" height="3" viewbox="0 0 4 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="1.72566" cy="1.5" rx="1.72566" ry="1.5" fill="#0F1217"/>
+                        </svg>
+                        DevOps
+                    </div>
+                </div>
+            </div>
+            <ul class="pagination">
+                <li>Previous</li>
+                <li class="pagination--selected">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>Next</li>
+            </ul>
+        </main>
+        <hr>
+        <footer>
+            <a class="nostyle" href="#">writings.dev</a>
+            <p>
+                Created by
+                <a class="nostyle" href="https://dgaliano.com">Dominic Galiano</a>.
+            </p>
+        </footer>
+    </body>
+</html>

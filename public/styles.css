@@ -1,0 +1,234 @@
+/* Boilerplate */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/* Site Specific */
+
+html {
+    background: #232830;
+}
+
+body {
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    width: 90%;
+    overflow-x: hidden;
+
+    font-family: "Poppins", system-ui, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+}
+
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+/* Header */
+
+header {
+    margin: 75px 0 100px 0;
+}
+
+/* Nav */
+.navbar {
+    display: flex;
+    column-gap: 3.6rem;
+
+    color: #FFF;
+}
+
+.navbar__site {
+    margin-right: auto;
+    font-size: 3rem;
+}
+
+.navbar__link {
+    font-size: 2.4rem;
+}
+
+/* Hero type area */
+.centered {
+    text-align: center;
+}
+
+.header__image {
+    margin-top: 73px;
+    margin-bottom: 43px;
+}
+
+.header__title {
+    color: #FF7575;
+    font-family: "Recursive";
+    font-size: 7.1rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.header__subtitle {
+    color: #FFF;
+    font-size: 2.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Main */
+
+.content-filters {
+    list-style-type: none;
+    margin: 0;
+    padding: 16px 0;
+
+    display: flex;
+    justify-content: space-between;
+    column-gap: 36px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+
+    color: #909090;
+    font-family: Recursive;
+    font-size: 2.7rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.content-filters * {
+    cursor: pointer;
+}
+
+.content-filters__view-options {
+    white-space: nowrap;
+}
+
+/* Card */
+
+.articles {
+    margin: 100px 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    gap: 37px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 22px;
+    border: 1px solid #252930;
+    background: #FFF;
+
+    padding: 26px;
+
+    color: #0F1217;
+    font-family: Poppins;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    cursor: pointer;
+
+    height: 439px;
+}
+
+.card__image {
+    border-radius: 22px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+/* Pagination */
+
+.pagination {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    column-gap: 16px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+
+    color: #909090;
+    font-family: Recursive;
+    font-size: 2.5rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.pagination * {
+    padding: 17px 10px;
+    margin-bottom: 157px;
+
+    cursor: pointer;
+}
+
+.pagination--selected {
+    color: #FF7575;
+    font-weight: 700;
+    border-top: 3px solid #FF7575;
+}
+
+/* Footer */
+
+footer {
+    margin: 27px 0 127px 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #FFF;
+    font-family: "Source Sans 3";
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* Horizontal Rule */
+
+hr {
+    /* TODO: replace with something more elegant */
+    width: 200vw;
+    margin-left: -100vw;
+
+    opacity: 0.2;
+    background: #4D4D4D;
+}
