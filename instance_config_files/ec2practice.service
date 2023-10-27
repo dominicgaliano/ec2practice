@@ -1,0 +1,15 @@
+[Unit]
+Description=Express Server
+After=multi-user.target
+
+[Service]
+ExecStart=/home/ubuntu/.nvm/versions/node/v18.18.2/bin/node /home/ubuntu/ec2practice/index.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=express-server
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target

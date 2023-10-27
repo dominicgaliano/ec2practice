@@ -7,11 +7,30 @@ The goal of this project was to deploy a simple node server to an EC2 instance.
 ## Skills Learned
 
 - Created an EC2 instance through AWS console
-- Configured EC2 security group permissions to allow SSH and connection to specific http/https on public internet
+  - I used Ubuntu Linux 22.x out of convenience
+- Configured EC2 security group permissions to allow SSH locally and connection to http/https on public internet
 - SSH'd to EC2 instance from local terminal
-- Explored the Amazon Linux 2 OS
-- Used linux scp to transfer files securely via SSH
-- Installed node and git and then used them to clone a repo and run express server on an EC2 instance
+- Installed node then used it to run express server on an EC2 instance
+
+```bash
+# install node
+cd ~
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.bashrc
+nvm install v18.18.2
+```
+
 - Setup systemd to run node server as background service, restarting after any reboots
+  - See [./instance_config_files/ec2practice.service](./instance_files/ec2practice.service)
+  - Used [this resource](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files)
+
+```bash
+sudo vim /etc/systemd/system/ec2practice.service
+```
+
 - Installed and setup nginx reverse proxy to forward HTTP requests to a different port on EC2 instance
 - Terminated EC2 instance
+
+```
+
+```
