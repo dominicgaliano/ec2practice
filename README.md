@@ -26,12 +26,19 @@ nvm install v18.18.2
 
 ```bash
 sudo vim /etc/systemd/system/ec2practice.service
+sudo systemctl daemon-reload
+
+# To set service to start on boot
+sudo systemctl enable ec2practice
 
 # To start service
 sudo systemctl start ec2practice
 
 # To kill service
 sudo systemctl stop ec2practice
+
+# To verify that service is running
+sudo systemctl is-enabled ec2practice.service
 ```
 
 - Installed and setup nginx reverse proxy to forward HTTP requests to a different port on EC2 instance
