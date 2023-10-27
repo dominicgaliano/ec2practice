@@ -22,10 +22,16 @@ nvm install v18.18.2
 
 - Setup systemd to run node server as background service, restarting after any reboots
   - See [./instance_config_files/ec2practice.service](./instance_files/ec2practice.service)
-  - Used [this resource](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files)
+  - Used [this resource](https://linuxhandbook.com/create-systemd-services/)
 
 ```bash
 sudo vim /etc/systemd/system/ec2practice.service
+
+# To start service
+sudo systemctl start ec2practice
+
+# To kill service
+sudo systemctl stop ec2practice
 ```
 
 - Installed and setup nginx reverse proxy to forward HTTP requests to a different port on EC2 instance

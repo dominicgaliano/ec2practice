@@ -4,6 +4,7 @@ After=multi-user.target
 
 [Service]
 ExecStart=/home/ubuntu/.nvm/versions/node/v18.18.2/bin/node /home/ubuntu/ec2practice/index.js
+Type=exec
 Restart=always
 RestartSec=10
 StandardOutput=syslog
