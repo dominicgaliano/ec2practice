@@ -23,6 +23,7 @@ nvm install v18.18.2
 - Setup systemd to run node server as background service, restarting after any reboots
   - See [./instance_config_files/ec2practice.service](./instance_files/ec2practice.service)
   - Used [this resource](https://linuxhandbook.com/create-systemd-services/)
+  - Learned the importance of using absolute paths (server was failing with relative paths when running as a systemd unit)
 
 ```bash
 sudo vim /etc/systemd/system/ec2practice.service
@@ -42,6 +43,7 @@ sudo systemctl stop ec2practice
 ```
 
 - Installed and setup nginx reverse proxy to forward HTTP requests to a different port on EC2 instance
+  - See [./instance_config_files/ec2practice.conf](./instance_config_files/ec2practice.conf)
 
 ```bash
 # install nginx
@@ -52,8 +54,12 @@ sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
-# edit nginx config
-sudo vim /etc/nginx/nginx.conf
+# unlink default nginx config and move our config over
+sudo unlink /etc/nginx/sites-available/default
+sudo cp home/ubuntu/ec2practice/instance_config_files/ec2practice.conf /etc/nginx/sites-available
+
+# # edit nginx config
+# sudo vim /etc/nginx/nginx.conf
 ```
 
 - Terminated EC2 instance
