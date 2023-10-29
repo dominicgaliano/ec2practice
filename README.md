@@ -44,6 +44,7 @@ sudo systemctl stop ec2practice
 
 - Installed and setup nginx reverse proxy to forward HTTP requests to a different port on EC2 instance
   - See [./instance_config_files/ec2practice](./instance_config_files/ec2practice)
+  - From this point on, the server is accessible via http://{server-public-ip-address} but not via https://...
 
 ```bash
 # install nginx
@@ -64,6 +65,35 @@ sudo systemctl restart nginx
 
 # test reverse proxy locally
 curl localhost
+```
+
+- Point a domain at ec2 instance
+
+  - I first tried using a subdomain of my [personal website](https://dgaliano.com), but the SSL certificates I had set up for the main site also applied to the subdomain which would make the next part of the project irrelevant.
+  - I ended up registering a cheap domain [058968801.xyz](058968801.xyz) for testing. I will use this domain for other infrastructure related projects in the future.
+  - Currently waiting for DNS records to propagate.
+
+- Setup HTTPS using certbot and Let's Encrypt
+  - Used [this guide](https://roadmap.sh/guides/setup-and-auto-renew-ssl-certificates)
+
+```bash
+# install snapd package manager
+sudo apt-get update
+sudo apt-get install snapd
+sudo snap install core
+sudo snap refresh core
+
+# install certbot
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+# verify installation
+certbot --version
+
+# configure certbot for nginx server (opens interactive session)
+sudo certbot --nginx
+
+# To be continued
 ```
 
 - Terminated EC2 instance
