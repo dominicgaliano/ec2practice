@@ -50,13 +50,14 @@ sudo systemctl stop ec2practice
 sudo apt update
 sudo apt install nginx -y
 
-# enable and start nginx
-sudo systemctl enable nginx
-sudo systemctl start nginx
-
 # unlink default nginx config and move our config over
 sudo unlink /etc/nginx/sites-available/default
 sudo cp home/ubuntu/ec2practice/instance_config_files/ec2practice.conf /etc/nginx/sites-available
+sudo ln -s /etc/nginx/sites-available/ec2practice.conf /etc/nginx/sites-enabled/
+
+# enable and start nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
 
 # # edit nginx config
 # sudo vim /etc/nginx/nginx.conf
