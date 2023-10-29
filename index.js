@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const path = require("path");
 
 app.use(morgan("combined"));
-app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/", express.static(path.join(__dirname, "public")));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
