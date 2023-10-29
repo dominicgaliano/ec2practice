@@ -52,18 +52,18 @@ sudo apt install nginx -y
 
 # unlink default nginx config and move our config over
 sudo unlink /etc/nginx/sites-available/default
+sudo rm /etc/nginx/sites-enabled/default
 sudo cp home/ubuntu/ec2practice/instance_config_files/ec2practice /etc/nginx/sites-available
 sudo ln -s /etc/nginx/sites-available/ec2practice /etc/nginx/sites-enabled/
 
 # test nginx config
 sudo nginx -t
 
-# enable and start nginx
-sudo systemctl enable nginx
-sudo systemctl start nginx
+# restart nginx
+sudo systemctl restart nginx
 
-# # edit nginx config
-# sudo vim /etc/nginx/nginx.conf
+# test reverse proxy locally
+curl localhost
 ```
 
 - Terminated EC2 instance
