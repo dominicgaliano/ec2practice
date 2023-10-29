@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project was to deploy a simple node server to an EC2 instance.
+The goal of this project is to deploy a simple node server to an EC2 instance with all of the accompanying infrastructure including reverse proxy, SSL certification, and monitoring.
 
 ## Skills Learned
 
@@ -67,38 +67,71 @@ sudo systemctl restart nginx
 curl localhost
 ```
 
-- Point a domain at ec2 instance
+- Registered and new domain and configured DNS to point to EC2 instance
 
+  - Test
   - I first tried using a subdomain of my [personal website](https://dgaliano.com), but the SSL certificates I had set up for the main site also applied to the subdomain which would make the next part of the project irrelevant.
   - I ended up registering a cheap domain [058968801.xyz](058968801.xyz) for testing. I will use this domain for other infrastructure related projects in the future.
 
 - Setup HTTPS using certbot and Let's Encrypt
-  - Used [this guide](https://roadmap.sh/guides/setup-and-auto-renew-ssl-certificates)
+  - Used [this guide](https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/)
+  - Setup cron job to automatically renew the SSL certificates. The job runs every day at noon and will renew the certificate if it will expire in less than 30 days.
+  - The website will now redirect to https automatically and should only be accessible via https
 
 ```bash
-# install snapd package manager
-sudo apt-get update
-sudo apt-get install snapd
-sudo snap install core
-sudo snap refresh core
-
 # install certbot
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo apt-get update
+sudo apt-get install certbot
+sudo apt-get install python3-certbot-nginx
 
-# verify installation
-certbot --version
+# generate certificates
+sudo certbot --nginx -d 058968801.xyz -d www.058968801.xyz
 
-# configure certbot for nginx server (opens interactive session)
-sudo certbot --nginx
+# check that certbot added the appropriate config lines
+cat /etc/nginx/sites-available/058968801.xyz.conf
 
-# check if cronjob to see if there is an ssl renewal job setup
-sudo crontab -l
-# if the following command says that there is no cronjob, check for a certbot job here
-sudo systemctl list-timers
+# open crontab file
+sudo crontab -e
+
+# add the following command to file and save:
+0 12 * * * /usr/bin/certbot renew --quiet
 
 # simulate renewal
 sudo certbot renew --dry-run
+```
+
+- Set up monit to monitor server
+  - Access monit gui remotely at username:password@server-ip:2812
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install monit
+sudo vim /etc/monit/monitrc
+
+# modify the following lines (and others as desired) to configure monit, you should replace the passwords
+set daemon  60             # check services at 60 seconds intervals
+set httpd port 2812 and
+    use address localhost  # only accept connection from localhost (drop if you use M/Monit)
+    allow localhost        # allow localhost to connect to the server and
+    ... add other ips you want to allow here
+    allow admin:monit      # require user 'admin' with password 'monit'
+
+# enable monit and start
+sudo systemctl enable monit
+sudo systemctl start monit
+
+# check status
+sudo systemctl status monit
+
+# configure monit to monitor nginx server
+sudo cp home/ubuntu/ec2practice/instance_config_files/nginx.monit.conf etc/monit/conf.d/monit.conf
+
+# configure monit to monitor express server
+sudo cp home/ubuntu/ec2practice/instance_config_files/express.monit.conf etc/monit/conf.d/express.conf
+
+# reload
+sudo monit reload
 ```
 
 - Terminated EC2 instance
