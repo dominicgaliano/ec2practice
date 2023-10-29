@@ -54,8 +54,8 @@ sudo apt install nginx -y
 # unlink default nginx config and move our config over
 sudo unlink /etc/nginx/sites-available/default
 sudo rm /etc/nginx/sites-enabled/default
-sudo cp home/ubuntu/ec2practice/instance_config_files/ec2practice /etc/nginx/sites-available
-sudo ln -s /etc/nginx/sites-available/ec2practice /etc/nginx/sites-enabled/
+sudo cp home/ubuntu/ec2practice/instance_config_files/058968801.xyz.conf /etc/nginx/sites-available
+sudo ln -s /etc/nginx/sites-available/058968801.xyz.conf /etc/nginx/sites-enabled/
 
 # test nginx config
 sudo nginx -t
@@ -71,7 +71,6 @@ curl localhost
 
   - I first tried using a subdomain of my [personal website](https://dgaliano.com), but the SSL certificates I had set up for the main site also applied to the subdomain which would make the next part of the project irrelevant.
   - I ended up registering a cheap domain [058968801.xyz](058968801.xyz) for testing. I will use this domain for other infrastructure related projects in the future.
-  - Currently waiting for DNS records to propagate.
 
 - Setup HTTPS using certbot and Let's Encrypt
   - Used [this guide](https://roadmap.sh/guides/setup-and-auto-renew-ssl-certificates)
@@ -93,7 +92,13 @@ certbot --version
 # configure certbot for nginx server (opens interactive session)
 sudo certbot --nginx
 
-# To be continued
+# check if cronjob to see if there is an ssl renewal job setup
+sudo crontab -l
+# if the following command says that there is no cronjob, check for a certbot job here
+sudo systemctl list-timers
+
+# simulate renewal
+sudo certbot renew --dry-run
 ```
 
 - Terminated EC2 instance
