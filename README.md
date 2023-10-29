@@ -43,7 +43,7 @@ sudo systemctl stop ec2practice
 ```
 
 - Installed and setup nginx reverse proxy to forward HTTP requests to a different port on EC2 instance
-  - See [./instance_config_files/ec2practice.conf](./instance_config_files/ec2practice.conf)
+  - See [./instance_config_files/ec2practice](./instance_config_files/ec2practice)
 
 ```bash
 # install nginx
@@ -52,8 +52,11 @@ sudo apt install nginx -y
 
 # unlink default nginx config and move our config over
 sudo unlink /etc/nginx/sites-available/default
-sudo cp home/ubuntu/ec2practice/instance_config_files/ec2practice.conf /etc/nginx/sites-available
-sudo ln -s /etc/nginx/sites-available/ec2practice.conf /etc/nginx/sites-enabled/
+sudo cp home/ubuntu/ec2practice/instance_config_files/ec2practice /etc/nginx/sites-available
+sudo ln -s /etc/nginx/sites-available/ec2practice /etc/nginx/sites-enabled/
+
+# test nginx config
+sudo nginx -t
 
 # enable and start nginx
 sudo systemctl enable nginx
