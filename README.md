@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project is to deploy a simple node server using CI/CD principles to an EC2 instance with all of the accompanying infrastructure including reverse proxy, SSL certification, and monitoring.
+The goal of this project is to deploy a simple node server using CI/CD to an EC2 instance with all of the accompanying infrastructure including reverse proxy, SSL certification, and monitoring.
 
 ## Skills Learned
 
