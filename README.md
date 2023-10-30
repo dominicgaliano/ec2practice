@@ -134,8 +134,9 @@ sudo cp home/ubuntu/ec2practice/instance_config_files/express.monit.conf etc/mon
 sudo monit reload
 ```
 
-- Setup github action to automatically deploy code changes to ec2 instance
-  - See files [here](".github/workflows/deploy-aws.yml")
-  - Utilizes AWS CodeDeploy
+- Setup a CI/CD pipeline with Github Actions!
+  - Setup github action to automatically deploy code changes to ec2 instance
+    - See deployment workflow file [here](".github/workflows/deploy-aws.yml")
+  - Setup github action to automatically test express server using Jest on pull requests
 
 - Terminated EC2 instance

@@ -14,6 +14,11 @@ app.get("/api", (req, res) => {
   res.send('API route');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  // This code will only run if the file is being executed directly
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+  });
+}
