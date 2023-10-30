@@ -12,7 +12,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 app.get("/api", (req, res) => {
   res.status(200);
   res.send('API route');
-};
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
