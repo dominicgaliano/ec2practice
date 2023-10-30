@@ -21,7 +21,7 @@ nvm install v18.18.2
 ```
 
 - Setup systemd to run node server as background service, restarting after any reboots
-  - See [./instance_config_files/ec2practice.service](./instance_files/ec2practice.service)
+  - See [./instance_config_files/ec2practice.service](./instance_config_files/ec2practice.service)
   - Used [this resource](https://linuxhandbook.com/create-systemd-services/)
   - Learned the importance of using absolute paths (server was failing with relative paths when running as a systemd unit)
 
@@ -136,8 +136,8 @@ sudo monit reload
 
 - Setup a CI/CD pipeline with Github Actions!
   - Setup github action to automatically test express server using Jest on pull requests
-    - See integration workflow file [here](".github/workflows/test.yml")
+    - See integration workflow file [here](.github/workflows/test.yml)
   - Setup github action to automatically deploy code changes to ec2 instance
-    - See deployment workflow file [here](".github/workflows/deploy-aws.yml")
+    - See deployment workflow file [here](.github/workflows/deploy-aws.yml)
 
 - Terminated EC2 instance
