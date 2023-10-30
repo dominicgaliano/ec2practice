@@ -17,11 +17,11 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Deploy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          SOURCE: "./"
-          REMOTE_HOST: "ec2-3-15-4-134.us-east-2.compute.amazonaws.com"
-          REMOTE_USER: "ubuntu"
-          TARGET: "/home/ubuntu/ec2practice"
+      - uses: webfactory/ssh-agent@v0.8.0 
+        with:
+          ssh_private_key: ${{ secrets.EC2_SSH_KEY }}
+       
+      - name: Deploy to EC2
+        run: |
+          rsync -avz --exclude "configuration" -e "ssh -o StrictHostKeyChecking=no" -p ./ ec2-3-15-4-134.us-east-2.compute.amazonaws.com:/home/ubuntu/ec2practice
+
