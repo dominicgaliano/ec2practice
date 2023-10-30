@@ -135,8 +135,9 @@ sudo monit reload
 ```
 
 - Setup a CI/CD pipeline with Github Actions!
+  - Setup github action to automatically test express server using Jest on pull requests
+    - See integration workflow file [here](".github/workflows/test.yml")
   - Setup github action to automatically deploy code changes to ec2 instance
     - See deployment workflow file [here](".github/workflows/deploy-aws.yml")
-  - Setup github action to automatically test express server using Jest on pull requests
 
 - Terminated EC2 instance
