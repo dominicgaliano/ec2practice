@@ -23,5 +23,12 @@ jobs:
        
       - name: Deploy to EC2
         run: |
-          rsync -avz --exclude "configuration" -e "ssh -o StrictHostKeyChecking=no" -p ./ ubuntu@ec2-3-15-4-134.us-east-2.compute.amazonaws.com:/home/ubuntu/ec2practice
+          rsync -avz --exclude "configuration" -e "ssh -o StrictHostKeyChecking=no" -p ./ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/ec2practice
 
+      - name: Restart express server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: sudo systemctl restart ec2practice 
